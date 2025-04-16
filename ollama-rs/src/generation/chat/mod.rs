@@ -124,6 +124,7 @@ impl Ollama {
 
         let url = format!("{}api/chat", self.url_str());
         let serialized = serde_json::to_string(&request)?;
+        println!("@@@@@@@@@OREQ {:?}", serialized);
         let builder = self.reqwest_client.post(url);
 
         #[cfg(feature = "headers")]
